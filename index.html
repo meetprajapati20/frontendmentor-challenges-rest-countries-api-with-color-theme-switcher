@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="light">
-    <div class="row container-fluid header p-4 m-0 position-fixed fixed-top shadow">
+    <div class="row container-fluid header p-4 m-0 position-fixed fixed-top shadow" role="navigation">
         <div class="col title px-5">Where in the world?</div>
         <div class="col-lg-2 col-sm-4 mode">
             <svg id="light" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon d-none" viewBox="0 0 16 16">
@@ -20,7 +19,7 @@
             </svg>
             Dark Mode</div>
     </div>
-    <div class="body container-xl">
+    <div class="body container-xl" role="button">
         <div class="row m-0 operation">
             <div class="col-4 search shadow shadow-lg rounded">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -35,7 +34,7 @@
                 </select>
             </div>
         </div>
-        <div class="container-xl mt-5">
+        <div class="container-xl mt-5" role="directory">
             <div class="row justify-content-center" id="contry">
                 
             </div>
