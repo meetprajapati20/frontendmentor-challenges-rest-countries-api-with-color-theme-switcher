@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contry Details</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="row container-fluid header p-4 m-0 border border-dark position-fixed fixed-top">
+        <div class="col title px-5">Where in the world?</div>
+        <div class="col-lg-2 col-sm-4 mode">
+            <svg id="light" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon d-none" viewBox="0 0 16 16">
+                <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
+            </svg>
+            <svg id="dark" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16">
+                <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+            </svg>
+            Dark Mode</div>
+    </div>
+    <div class="body">
+        <div class="back container-xl">
+            <a href="index.html" class="backbutton btn shadow px-4 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                </svg> Back</a>
+        </div>
+        <div class="container-xl mt-5">
+            <div class="row justify-content-center" id="contry">
+                
+            </div>
+    </div>
+<!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+<!-- JQUERY  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<!-- CUSTOM JS -->
+<script>
+    $(".mode").bind("click", function(){
+        $(".mode svg").toggleClass("d-none");
+        $("body").toggleClass("light");
+        if ($("body").hasClass("light")===false){
+            $(".backbutton").attr("href", "index.html?mode=false");
+        } else {
+            $(".backbutton").attr("href", "index.html?mode=true");
+            console.log($("body").hasClass("light"));
+        }
+    });
+    $(document).ready(function () {
+        // get params from url
+        var url_string = window.location.href;
+        var url = new URL(url_string);
+        var name = url.searchParams.get("country");
+        var mode = url.searchParams.get("mode");
+        $(".backbutton").attr("href", "index.html?mode="+mode);
+        if(mode == "true"){
+            $(".mode svg").toggleClass("d-none");
+            $("body").toggleClass("light");
+        }
+        $.ajax({ 
+            type: 'GET', 
+            url: './data.json', 
+            data: { get_param: 'value' }, 
+            success: function (data) { 
+                var html = "";
+                for (var i = 0; i < data.length; i++) {
+                    if(data[i].name == name){
+                        html += '<div class="col px-5">';
+                        html += '<img src="'+data[i].flag+'" class="w-100 shadow-lg">';
+                        html += '</div>';
+                        html += '<div class="col">';
+                        html += '<div class="country-header py-5">'+data[i].name+'</div>';
+                        html += '<div class="row">';
+                        html += '<div class="col d-flex flex-column">';
+                        html += '<p class="">Native Name: <span>'+data[i].nativeName+'</span></p>';
+                        html += '<p class="">Population: <span>'+data[i].population+'</span></p>';
+                        html += '<p class="">Region: <span>'+data[i].region+'</span></p>';
+                        html += '<p class="">Sub Region: <span>'+data[i].subregion+'</span></p>';
+                        html += '<p class="">Capital: <span>'+data[i].capital+'</span></p>';
+                        html += '</div>';
+                        html += '<div class="col d-flex flex-column">';
+                        html += '<p class="">Top Level Domain: <span>'+data[i].topLevelDomain+'</span></p>';
+                        html += '<p class="">Currencies: <span>'+data[i].currencies[0].name+'</span></p>';
+                        html += '<p class="">Language: <span>'+data[i].languages[0].name+'</span></p>';
+                        html += '</div>';
+                        html += '</div>';
+                        html += '<div class="tags mt-3 d-flex justify-content-start">';
+                        html += '<span class="p-1 m-2">Border Countries: </span>';
+                        for (var j = 0; j < data[i]?.borders?.length; j++) {
+                            html += '<p class="tag p-1 m-2 rounded shadow">'+data[i].borders[j]+'</p>';
+                        }
+                        html += '</div>';
+                        break;
+                    }
+                }
+                $("#contry").html(html);
+            }
+        });
+    });
+
+
+
+</script>
+</body>
+</html>

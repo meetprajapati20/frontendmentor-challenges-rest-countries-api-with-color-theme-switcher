@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&family=Nunito+Sans:opsz@6..12&display=swap');
+* {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+body {
+    background-color: hsl(207, 26%, 17%);
+}
+.header {
+    background-color: hsl(209, 23%, 22%);
+    color: hsl(0, 0%, 100%);
+    letter-spacing: 1.5px;
+}
+.mode {
+    font-size: 16px;
+    text-align: end;
+}
+.header .title {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+}
+.body {
+    background-color: hsl(207, 26%, 17%);
+    color: hsl(0, 0%, 100%);
+    padding-top: 8rem;
+    border-radius: 5px;
+}
+.body .search {
+    background-color: hsl(209, 23%, 22%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.body .search input::placeholder {
+    color: hsl(0, 0%, 100%);
+}
+.body .search input {
+    width: 94%;
+    padding: 1rem;
+    border: none;
+    color: hsl(0, 0%, 100%);
+    background-color: hsl(209, 23%, 22%) !important;
+}
+.body .search input:focus,.body .search input:active {
+    border: none;
+}
+.filter select ,.filter select:focus, .filter select:active {
+    border: none;
+    background-color: hsl(209, 23%, 22%);
+    padding: 1rem;
+    color: hsl(0, 0%, 100%);
+}
+.container-xl {
+    max-width: 1260px !important;
+}
+.card {
+    background-color: hsl(209, 23%, 22%);
+    padding: 0;
+}
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem !important;
+}
+.card-body p {
+    margin-bottom: 3px;
+}
+.card-body p span {
+    color: hsl(0, 0%, 80%);
+}
+.card-img {
+    height: 10rem;
+    width: 100%;
+    object-fit: cover;
+}
+.card:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/*  */
+.backbutton {
+    background-color: hsl(209, 23%, 22%);
+}
+#contry img {
+    aspect-ratio: 4/3;
+    width: 100%;
+    object-fit: cover;
+}
+#contry .tags .tag {
+    background-color: hsl(209, 23%, 22%);
+    min-width: 6rem;
+    text-align: center;
+    color: hsl(0, 0%, 80%);
+}
+#contry span {
+    color: hsl(0, 0%, 80%) ;
+}
+.country-header {
+    font-size: 22px;
+    font-weight: 700;
+}
+.tags {
+    flex-wrap: wrap;
+}
+.tags span {
+    width: 10rem;
+}
+
+
+/* light */
+.light {
+    background-color: hsl(0, 0%, 100%) !important;
+    color: hsl(200, 15%, 8%) !important;
+}
+.light .header {
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(200, 15%, 8%);
+    border: 0;
+}
+.light .body .search {
+    background-color: hsl(0, 0%, 98%);
+}
+.light .body,.light .body .search input {
+    background-color: hsl(0, 0%, 98%) !important;
+    color: hsl(200, 15%, 8%) !important;
+}
+.light .body .search input::placeholder {
+    color: hsl(200, 15%, 8%) !important;
+}
+.light .body .search input:focus,.light .body .search input:active {
+    border: none;
+}
+.light .filter select ,.light .filter select:focus, .light .filter select:active {
+    border: none;
+    background-color: hsl(0, 0%, 98%);
+    padding: 1rem;
+    color: hsl(200, 15%, 8%);
+}
+.light .card {
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(200, 15%, 8%);
+}
+.light .card-body p span {
+    color: hsl(200, 15%, 8%) !important;
+}
+
+.light .body .backbutton {
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(200, 15%, 8%) !important;
+    font-weight: 600;
+}
+.light .body .backbutton:hover {
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(200, 15%, 8%) !important;
+}
+.light .body p,.light .body .tags span {
+    color: hsl(200, 15%, 8%) !important;
+    font-weight: 600;
+}
+.light .body p span {
+    color: hsl(200, 15%, 8%) !important;
+}
+.light .body .tags .tag {
+    background-color: hsl(0, 0%, 98%) !important;
+    color: hsl(200, 15%, 8%) !important;
+}
+
+
+@media screen and (max-width: 375px) {
+    .header .title {
+        font-size: 15px;
+        font-weight: 400;
+        width: 70%;
+        padding: 0 !important;
+    } 
+    .mode {
+        width: 30%;
+        font-size: 10px;
+        padding: 0 !important;
+    }
+    .filter {
+        margin-top: 10px;
+        offset: 0 !important;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .body .col-4 {
+        max-width: 100%;
+    }
+    #contry .col-2 {
+        flex: 0 0 90.666667%;
+        max-width: 90.666667%;
+    }
+    .search {
+        width: 100vw;
+    }
+    .search input {
+        width: 100vw !important;
+    }
+    .operation {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    #contry .col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
