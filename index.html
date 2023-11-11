@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light">
     <div class="row container-fluid header p-4 m-0 position-fixed fixed-top shadow">
         <div class="col title px-5">Where in the world?</div>
         <div class="col-lg-2 col-sm-4 mode">
@@ -72,14 +72,14 @@
                     for (var i = 0; i < data.length; i++) {
                         html += '<div class="col-2 m-5 card rounded-lg shadow pb-4">';
                         html += '<div class="card-img">';
-                        html += '<img src="'+data[i].flag+'" class="h-100 w-100 overflow-hidden">';
+                        html += '<img src="'+data[i].flag+'" alt="" class="h-100 w-100 overflow-hidden">';
                         html += '</div>';
                         html += '<div class="card-body">';
                         html += '<p class="card-title font-weight-bold">'+data[i].name+'</p>';
-                        html += '<p id="population">Population: <span>'+data[i].population+'</span></p>';
-                        html += '<p id="Region">Region: <span>'+data[i].region+'</span> </p>';
+                        html += '<p>Population: <span>'+data[i].population+'</span></p>';
+                        html += '<p>Region: <span>'+data[i].region+'</span> </p>';
                         filterRegion.push(data[i].region);
-                        html += '<p id="capital">Capital: <span>'+data[i].capital+'</span></p>';
+                        html += '<p>Capital: <span>'+data[i].capital+'</span></p>';
                         html += '</div>';
                         html += '</div>';
                     }
