@@ -116,6 +116,16 @@
                 }
             });
         });
+        $(".search-input").keyup(function(){
+            var search = $(this).val().toLowerCase();
+            $(".card").each(function(){
+                if($(this).find(".card-title").text().toLowerCase().indexOf(search) > -1){
+                    $(this).removeClass("d-none");
+                }else{
+                    $(this).addClass("d-none");
+                }
+            });
+        });
     </script>
 </body>
 </html>
